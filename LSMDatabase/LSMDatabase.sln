@@ -3,14 +3,23 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.2.32616.157
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LSMDataBase", "LSMDataBase\LSMDataBase.csproj", "{29948CB6-59E5-448A-B3AC-0BB6CB53BA46}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LSMDatabase", "src\LSMDatabase\LSMDatabase.csproj", "{29948CB6-59E5-448A-B3AC-0BB6CB53BA46}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{39FB0485-DDF6-4841-A8FD-8D2DE0F23A43}"
-	ProjectSection(SolutionItems) = preProject
-		.editorconfig = .editorconfig
-	EndProjectSection
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LSMDatabase.Contracts", "src\LSMDatabase.Contracts\LSMDatabase.Contracts.csproj", "{56F34374-868D-4543-987C-C7C8DC8CE62C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test", "Test\Test.csproj", "{EBD0D3E2-F58C-4E2E-94E9-BC319DECBDCA}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LSMDatabase.Shared", "src\LSMDatabase.Shared\LSMDatabase.Shared.csproj", "{5A74C58E-D660-4496-8CA1-30F73000EA1E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LSMDatabase.MemoryTables", "src\LSMDatabase.MemoryTables\LSMDatabase.MemoryTables.csproj", "{28EB23D8-C3CA-4C69-8899-658C421FB030}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LSMDatabase.WriteAheadLogs", "src\LSMDatabase.WriteAheadLogs\LSMDatabase.WriteAheadLogs.csproj", "{E5232480-5FC4-4DF1-9A6E-488D826D8318}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LSMDatabase.SortedStringsTables", "src\LSMDatabase.SortedStringsTables\LSMDatabase.SortedStringsTables.csproj", "{C8A78F9F-CDCC-43A6-8B67-4BEC9D1481F0}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{8D7BE6F3-FFE6-438D-8768-6CCDAE71DA4C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{CD48814D-0144-49E2-B732-6D56F1E41C6C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LSMDatabase.Tests", "test\LSMDatabase.Tests\LSMDatabase.Tests.csproj", "{CC22F48E-4C8E-4996-AFEA-96F9DF9B99C6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -22,15 +31,44 @@ Global
 		{29948CB6-59E5-448A-B3AC-0BB6CB53BA46}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{29948CB6-59E5-448A-B3AC-0BB6CB53BA46}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{29948CB6-59E5-448A-B3AC-0BB6CB53BA46}.Release|Any CPU.Build.0 = Release|Any CPU
-		{EBD0D3E2-F58C-4E2E-94E9-BC319DECBDCA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{EBD0D3E2-F58C-4E2E-94E9-BC319DECBDCA}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{EBD0D3E2-F58C-4E2E-94E9-BC319DECBDCA}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{EBD0D3E2-F58C-4E2E-94E9-BC319DECBDCA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{56F34374-868D-4543-987C-C7C8DC8CE62C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{56F34374-868D-4543-987C-C7C8DC8CE62C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{56F34374-868D-4543-987C-C7C8DC8CE62C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{56F34374-868D-4543-987C-C7C8DC8CE62C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5A74C58E-D660-4496-8CA1-30F73000EA1E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5A74C58E-D660-4496-8CA1-30F73000EA1E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5A74C58E-D660-4496-8CA1-30F73000EA1E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5A74C58E-D660-4496-8CA1-30F73000EA1E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{28EB23D8-C3CA-4C69-8899-658C421FB030}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{28EB23D8-C3CA-4C69-8899-658C421FB030}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{28EB23D8-C3CA-4C69-8899-658C421FB030}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{28EB23D8-C3CA-4C69-8899-658C421FB030}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E5232480-5FC4-4DF1-9A6E-488D826D8318}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E5232480-5FC4-4DF1-9A6E-488D826D8318}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E5232480-5FC4-4DF1-9A6E-488D826D8318}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E5232480-5FC4-4DF1-9A6E-488D826D8318}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C8A78F9F-CDCC-43A6-8B67-4BEC9D1481F0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C8A78F9F-CDCC-43A6-8B67-4BEC9D1481F0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C8A78F9F-CDCC-43A6-8B67-4BEC9D1481F0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C8A78F9F-CDCC-43A6-8B67-4BEC9D1481F0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CC22F48E-4C8E-4996-AFEA-96F9DF9B99C6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CC22F48E-4C8E-4996-AFEA-96F9DF9B99C6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CC22F48E-4C8E-4996-AFEA-96F9DF9B99C6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CC22F48E-4C8E-4996-AFEA-96F9DF9B99C6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {42C2F1DA-1885-44A4-9DDA-C5E790AA517C}
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{29948CB6-59E5-448A-B3AC-0BB6CB53BA46} = {8D7BE6F3-FFE6-438D-8768-6CCDAE71DA4C}
+		{56F34374-868D-4543-987C-C7C8DC8CE62C} = {8D7BE6F3-FFE6-438D-8768-6CCDAE71DA4C}
+		{28EB23D8-C3CA-4C69-8899-658C421FB030} = {8D7BE6F3-FFE6-438D-8768-6CCDAE71DA4C}
+		{5A74C58E-D660-4496-8CA1-30F73000EA1E} = {8D7BE6F3-FFE6-438D-8768-6CCDAE71DA4C}
+		{C8A78F9F-CDCC-43A6-8B67-4BEC9D1481F0} = {8D7BE6F3-FFE6-438D-8768-6CCDAE71DA4C}
+		{E5232480-5FC4-4DF1-9A6E-488D826D8318} = {8D7BE6F3-FFE6-438D-8768-6CCDAE71DA4C}
+		{CC22F48E-4C8E-4996-AFEA-96F9DF9B99C6} = {CD48814D-0144-49E2-B732-6D56F1E41C6C}
 	EndGlobalSection
 EndGlobal

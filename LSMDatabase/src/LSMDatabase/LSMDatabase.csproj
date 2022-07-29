@@ -1,0 +1,21 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Library</OutputType>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\LSMDatabase.Contracts\LSMDatabase.Contracts.csproj" />
+    <ProjectReference Include="..\LSMDatabase.MemoryTables\LSMDatabase.MemoryTables.csproj" />
+    <ProjectReference Include="..\LSMDatabase.Shared\LSMDatabase.Shared.csproj" />
+    <ProjectReference Include="..\LSMDatabase.WriteAheadLogs\LSMDatabase.WriteAheadLogs.csproj" />
+  </ItemGroup>
+
+</Project>
